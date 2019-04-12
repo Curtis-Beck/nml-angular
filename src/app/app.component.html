@@ -1,0 +1,14 @@
+<div style="text-align:center">
+  <h1>{{ title }}</h1>
+  <input [(ngModel)]="query" placeholder="search"/><button (click)="clearQuery()">Clear</button>
+</div>
+
+<div>
+  <h3>List of Wisconsin Breweries</h3>
+    <ul>
+      <li *ngFor="let brewery of getFilteredBreweries( query )"> {{brewery.id + " - " + brewery.name}}</li>
+    </ul>
+</div>
+<div style="text-align:center">
+  Data Source: <a href="https://www.openbrewerydb.org/">Open Brewery DB</a>
+</div>
