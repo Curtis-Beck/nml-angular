@@ -22,7 +22,7 @@ export class AppComponent implements OnInit{
   /* Load List of Breweries to filter */
   ngOnInit(){
     this.breweryService.loadBreweryList( 'wisconsin' )
-    .subscribe( breweries => this.breweries = breweries );
+    .subscribe( breweries => this.breweries = breweries.sort((a,b) => a.name.localeCompare(b.name)) );
   }
   
   /* Helper method to clear the search results */
@@ -37,8 +37,9 @@ export class AppComponent implements OnInit{
   getFilteredBreweries( query ){
     var lowerQuery = query.toLowerCase();
    
-    //Returns the complete list if query is empty
-    return lowerQuery ? this.breweries.filter( item => item.name.toLowerCase().indexOf( lowerQuery ) !== -1 ) : this.breweries;
+    //Returns the complete list if query is empty, Otherwise sort returned list
+    return lowerQuery ? 
+        this.breweries.filter( item => item.name.toLowerCase().indexOf( lowerQuery ) !== -1 ) : this.breweries;
   }
 
 }
