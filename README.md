@@ -2,6 +2,7 @@
 
 ## Start Project
 
-`npm update
-`ng serve -0
-
+```
+npm update
+ng serve -0
+```
