@@ -11,7 +11,7 @@ import { Brewery } from './brewery';
 })
 
 export class AppComponent implements OnInit{
-  title = 'NML Brewery Filter Example';
+  title = 'NML Angular Brewery Filter Example';
   query = '';
   breweries:Brewery[] = [];
     
